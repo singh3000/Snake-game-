@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: radial-gradient(circle, #111, #000);
+  background: radial-gradient(circle at center, #111, #000);
   color: #eee;
   text-align: center;
   overflow: hidden;

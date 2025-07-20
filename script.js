@@ -11,16 +11,6 @@ window.addEventListener("keydown", e => {
   if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) e.preventDefault();
 });
 
-function launchGame() {
-  const startScreen = document.getElementById("startScreen");
-  const gameContent = document.getElementById("gameContent");
-  if (startScreen.style.display !== "none") {
-    startScreen.style.display = "none";
-    gameContent.style.display = "block";
-    startGame();
-  }
-}
-
 document.getElementById("startButton").addEventListener("click", launchGame);
 
 document.addEventListener("keydown", (e) => {
@@ -84,6 +74,9 @@ function draw() {
       ctx.stroke();
     }
   });
+
+  startGame(); // Automatically start when page loads
+
 
   let head = { ...snake[0] };
   if (direction === "UP") head.y--;

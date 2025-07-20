@@ -1,22 +1,32 @@
-<!DOCTYPE html>
+,<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Snake Game</title>
+  <title>Snake Game by Harsh</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>Snake Game 🐍</h1>
-  <div class="game-container">
-    <canvas id="gameCanvas" width="400" height="400"></canvas>
-  </div>
-  <button id="restartButton">Restart Game</button>
-  <div id="scoreBoard">Score: 0</div>
-  <script src="script.js"></script>
-  <footer class="footer">
-  <p>Coded by <strong>Harsh</strong> 🚀 | Built with passion for great products 💡</p>
-</footer>
 
+  <div id="startScreen">
+    <h2>🐍 Welcome to SnakeZone</h2>
+    <p>Use arrow keys to move the snake. Eat red blocks. Avoid walls & yourself.</p>
+    <button id="startButton">Start Game</button>
+  </div>
+
+  <div id="gameContent" style="display: none;">
+    <h1>SnakeZone</h1>
+    <div id="scoreBoard">Score: 0</div>
+    <div class="game-container">
+      <canvas id="gameCanvas" width="400" height="400"></canvas>
+    </div>
+    <button id="restartButton">Restart</button>
+  </div>
+
+  <footer class="footer">
+    <p>Coded by <strong>Harsh</strong> 🚀 | Designed for great experiences 💡</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

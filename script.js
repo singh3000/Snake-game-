@@ -7,6 +7,9 @@ let direction = "RIGHT";
 let gameInterval;
 let food = randomFood();
 
+console.log("JavaScript is loaded!");
+
+
 window.addEventListener("keydown", e => {
   if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) e.preventDefault();
 });
@@ -16,6 +19,10 @@ document.getElementById("startButton").addEventListener("click", () => {
   document.getElementById("gameContent").style.display = "block";
   startGame();
 });
+
+function startGame() {
+  gameInterval = setInterval(draw, 100);
+}
 
 document.getElementById("playAgainButton").addEventListener("click", () => {
   document.getElementById("gameOverScreen").style.display = "none";

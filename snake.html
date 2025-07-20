@@ -1,30 +1,48 @@
-,<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Snake Game by Harsh</title>
+  <title>SnakeZone by Harsh</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
+  <!-- Start Screen -->
   <div id="startScreen">
     <h2>🐍 Welcome to SnakeZone</h2>
-    <p>Use arrow keys to move the snake. Eat red blocks. Avoid walls & yourself.</p>
+    <p>Eat red blocks. Avoid collisions. Use arrow keys or buttons.</p>
     <button id="startButton">Start Game</button>
   </div>
 
+  <!-- Game Area -->
   <div id="gameContent" style="display: none;">
     <h1>SnakeZone</h1>
     <div id="scoreBoard">Score: 0</div>
     <div class="game-container">
       <canvas id="gameCanvas" width="400" height="400"></canvas>
     </div>
+    <div id="touchControls">
+      <button id="upBtn">⬆️</button>
+      <div>
+        <button id="leftBtn">⬅️</button>
+        <button id="rightBtn">➡️</button>
+      </div>
+      <button id="downBtn">⬇️</button>
+    </div>
     <button id="restartButton">Restart</button>
   </div>
 
+  <!-- Game Over Screen -->
+  <div id="gameOverScreen" style="display: none;">
+    <h2>💀 Game Over!</h2>
+    <p>Your Score: <span id="finalScore">0</span></p>
+    <button id="playAgainButton">Play Again</button>
+  </div>
+
+  <!-- Footer -->
   <footer class="footer">
-    <p>Coded by <strong>Harsh</strong> 🚀 | Designed for great experiences 💡</p>
+    <p>Coded by <strong>Harsh</strong> 🚀 | Designed for top-tier game experience 🎯</p>
   </footer>
 
   <script src="script.js"></script>

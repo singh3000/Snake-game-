@@ -7,22 +7,27 @@ let direction = "RIGHT";
 let gameInterval;
 let food = randomFood();
 
-console.log("JavaScript is loaded!");
-
-
 window.addEventListener("keydown", e => {
   if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) e.preventDefault();
 });
 
-document.getElementById("startButton").addEventListener("click", () => {
-  document.getElementById("startScreen").style.display = "none";
-  document.getElementById("gameContent").style.display = "block";
-  startGame();
-});
-
-function startGame() {
-  gameInterval = setInterval(draw, 100);
+function launchGame() {
+  const startScreen = document.getElementById("startScreen");
+  const gameContent = document.getElementById("gameContent");
+  if (startScreen.style.display !== "none") {
+    startScreen.style.display = "none";
+    gameContent.style.display = "block";
+    startGame();
+  }
 }
+
+document.getElementById("startButton").addEventListener("click", launchGame);
+
+document.addEventListener("keydown", (e) => {
+  if ((e.code === "Space" || e.code === "Enter") && document.getElementById("startScreen").style.display !== "none") {
+    launchGame();
+  }
+});
 
 document.getElementById("playAgainButton").addEventListener("click", () => {
   document.getElementById("gameOverScreen").style.display = "none";
@@ -62,7 +67,7 @@ function draw() {
   ctx.fillRect(food.x * box, food.y * box, box, box);
   ctx.shadowBlur = 0;
 
-  // Snake + face
+  // Snake with face
   snake.forEach((segment, index) => {
     ctx.fillStyle = "lime";
     ctx.fillRect(segment.x * box, segment.y * box, box, box);
@@ -80,15 +85,8 @@ function draw() {
     }
   });
 
-  // Movement
   let head = { ...snake[0] };
   if (direction === "UP") head.y--;
   if (direction === "DOWN") head.y++;
   if (direction === "LEFT") head.x--;
-  if (direction === "RIGHT") head.x++;
-
-  if (
-    head.x < 0 || head.x >= canvas.width / box ||
-    head.y < 0 || head.y >= canvas.height / box ||
-    snake.some((seg, i) => i !== 0 && seg.x === head.x && seg.y === head.y)
- 
+  if (direction === "RIGHT") head.x

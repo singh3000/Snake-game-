@@ -51,6 +51,9 @@ function draw() {
     return;
   }
 
+  document.getElementById("scoreBoard").textContent = "Score: " + score;
+
+
   snake.unshift(head);
 
   // Check food collision
